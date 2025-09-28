@@ -1,0 +1,146 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.logo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-placeholder img {
+    max-height: 50px;
+    max-width: 150px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.param-row, .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.param-control {
+    flex: 0 0 280px;
+    display: flex;
+    align-items: center;
+}
+
+.param-control label {
+    margin-left: 5px;
+}
+
+.param-inputs {
+    flex: 1;
+}
+
+.range-inputs {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.range-inputs label {
+    font-size: 0.9em;
+}
+
+input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.range-inputs input {
+    width: 70px;
+}
+
+.input-group label {
+    flex-basis: 280px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 1.5rem;
+    font-weight: normal;
+    line-height: 1.7;
+    background-color: #e9f5ff;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 5px solid #007bff;
+}
+
+#result h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#result strong {
+    font-weight: bold;
+}
+
+.plot-container {
+    width: 100%;
+    max-width: 900px;
+    height: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#chartContainer {
+    height: 500px;
+}
