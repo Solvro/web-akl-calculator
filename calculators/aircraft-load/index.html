@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wielowymiarowy Optymalizator Ładunku - KN Solvro x AKL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header class="logo-header">
+        <div class="logo-placeholder">
+            <img src="/solvro-logo.png" alt="Logo Solvro">
+        </div>
+        <div class="back-to-main">
+            <a href="../../index.html" class="back-button">← Powrót do wyboru kalkulatora</a>
+        </div>
+        <div class="logo-placeholder">
+            <img src="/akl-logo.png" alt="Logo AKL">
+        </div>
+    </header>
+
+    <h2>Optymalizator Ładunku Samolotu</h2>
+
+    <fieldset>
+        <legend>Wybierz tryb analizy</legend>
+        <div class="param-row">
+            <div class="param-control">
+                <input type="radio" id="none_radio" name="param3d" value="none" checked>
+                <label for="none_radio"><strong>Analiza 2D (standardowa)</strong></label>
+            </div>
+        </div>
+        <div id="param-list"></div>
+    </fieldset>
+
+    <div class="input-group">
+        <label for="max_area">Max powierzchnia skrzydła (m²):</label>
+        <input type="number" id="max_area" value="20">
+    </div>
+
+    <button id="run-analysis-btn">Uruchom Analizę</button>
+    <p id="result"></p>
+</div>
+
+<div id="plotContainer" class="plot-container" style="display: none;"></div>
+<div id="chartContainer" class="plot-container" style="display: none;"><canvas id="payloadChart"></canvas></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

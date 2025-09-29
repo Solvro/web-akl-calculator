@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wielowymiarowy Optymalizator Ładunku - KN Solvro x AKL</title>
+    <title>Wielowymiarowy Optymalizator - KN Solvro x AKL</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -20,32 +18,26 @@
         </div>
     </header>
 
-    <h2>Optymalizator Ładunku Samolotu</h2>
-    
-    <fieldset>
-        <legend>Wybierz tryb analizy</legend>
-        <div class="param-row">
-            <div class="param-control">
-                <input type="radio" id="none_radio" name="param3d" value="none" checked>
-                <label for="none_radio"><strong>Analiza 2D (standardowa)</strong></label>
-            </div>
-        </div>
-        <div id="param-list"></div>
-    </fieldset>
+    <h1>Kalkulatory</h1>
+    <p class="subtitle">Wybierz kalkulator, którego chcesz użyć:</p>
 
-    <div class="input-group">
-        <label for="max_area">Max powierzchnia skrzydła (m²):</label>
-        <input type="number" id="max_area" value="20">
+    <div class="calculator-grid">
+        <div class="calculator-card">
+            <h3>Optymalizator Ładunku Samolotu</h3>
+            <p>Oblicz optymalny ładunek samolotu uwzględniając parametry lotu, powierzchnię skrzydła i ograniczenia startowe.</p>
+            <div class="calculator-features">
+                <span class="feature-tag">Analiza 2D/3D</span>
+                <span class="feature-tag">Parametry lotu</span>
+                <span class="feature-tag">Wykres interaktywny</span>
+            </div>
+            <a href="calculators/aircraft-load/index.html" class="calculator-button">Otwórz Kalkulator</a>
+        </div>
     </div>
 
-    <button id="run-analysis-btn">Uruchom Analizę</button>
-    <p id="result"></p>
+    <footer class="page-footer">
+        <p>Projekt współpracy KN Solvro x Akademicki Klub Lotniczy | <a href="https://github.com/Solvro/web-akl-calculator" target="_blank">GitHub</a></p>
+    </footer>
 </div>
-
-<div id="plotContainer" class="plot-container" style="display: none;"></div>
-<div id="chartContainer" class="plot-container" style="display: none;"><canvas id="payloadChart"></canvas></div>
-
-<script src="script.js"></script>
 
 </body>
 </html>

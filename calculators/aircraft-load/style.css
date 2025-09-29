@@ -1,0 +1,28 @@
+/* Aircraft Load Calculator specific styles */
+.back-to-main {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.back-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007acc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #005a9e;
+}
+
+.logo-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
