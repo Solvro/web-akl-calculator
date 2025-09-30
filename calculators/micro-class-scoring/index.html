@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optymalizator Wyniku Lotu Micro Class - KN Solvro x AKL</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header class="logo-header">
+        <div class="logo-placeholder">
+            <img src="/solvro-logo.png" alt="Logo Solvro">
+        </div>
+        <div class="back-to-main">
+            <a href="../../index.html" class="back-button">← Powrót do wyboru kalkulatora</a>
+        </div>
+        <div class="logo-placeholder">
+            <img src="/akl-logo.png" alt="Logo AKL">
+        </div>
+    </header>
+
+    <h2>Optymalizator Wyniku Lotu Micro Class</h2>
+    <p class="description">Oblicz i zoptymalizuj Final Flight Score (FFS) dla samolotu klasy Micro. Formula: FS = 3 × W<sub>Payload</sub> × M + Z</p>
+
+    <div class="calculator-container">
+        <div class="controls-panel">
+            <fieldset>
+                <legend>Parametry samolotu</legend>
+
+                <div class="parameter-section">
+                    <label for="w-payload">
+                        <input type="checkbox" id="w-payload-variable" name="variable-parameter" value="w-payload">
+                        W<sub>Payload</sub> - Payload Weight (lbs)
+                    </label>
+                    <div class="parameter-controls">
+                        <input type="number" id="w-payload-constant" value="10" step="0.1" min="0">
+                        <div class="range-controls" style="display: none;">
+                            <div class="range-help-text">Zakres analizy dla wybranej zmiennej:</div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-payload-min" value="5" step="0.1" min="0" placeholder="Min">
+                                <span class="help-tooltip" title="Minimalna wartość do analizy">Min</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-payload-max" value="20" step="0.1" min="0" placeholder="Max">
+                                <span class="help-tooltip" title="Maksymalna wartość do analizy">Max</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-payload-points" value="50" min="10" max="200" placeholder="Points">
+                                <span class="help-tooltip" title="Liczba punktów do obliczenia (więcej = dokładniejszy wykres)">Punkty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameter-section">
+                    <label for="w-empty">
+                        <input type="checkbox" id="w-empty-variable" name="variable-parameter" value="w-empty">
+                        W<sub>Empty</sub> - Empty Weight (lbs)
+                    </label>
+                    <div class="parameter-controls">
+                        <input type="number" id="w-empty-constant" value="15" step="0.1" min="0">
+                        <div class="range-controls" style="display: none;">
+                            <div class="range-help-text">Zakres analizy dla wybranej zmiennej:</div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-empty-min" value="10" step="0.1" min="0" placeholder="Min">
+                                <span class="help-tooltip" title="Minimalna wartość do analizy">Min</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-empty-max" value="25" step="0.1" min="0" placeholder="Max">
+                                <span class="help-tooltip" title="Maksymalna wartość do analizy">Max</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="w-empty-points" value="50" min="10" max="200" placeholder="Points">
+                                <span class="help-tooltip" title="Liczba punktów do obliczenia (więcej = dokładniejszy wykres)">Punkty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameter-section">
+                    <label for="wingspan">
+                        <input type="checkbox" id="wingspan-variable" name="variable-parameter" value="wingspan">
+                        S - Wingspan (ft)
+                    </label>
+                    <div class="parameter-controls">
+                        <input type="number" id="wingspan-constant" value="8" step="0.1" min="0">
+                        <div class="range-controls" style="display: none;">
+                            <div class="range-help-text">Zakres analizy dla wybranej zmiennej:</div>
+                            <div class="input-with-help">
+                                <input type="number" id="wingspan-min" value="5" step="0.1" min="0" placeholder="Min">
+                                <span class="help-tooltip" title="Minimalna wartość do analizy">Min</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="wingspan-max" value="15" step="0.1" min="0" placeholder="Max">
+                                <span class="help-tooltip" title="Maksymalna wartość do analizy">Max</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="wingspan-points" value="50" min="10" max="200" placeholder="Points">
+                                <span class="help-tooltip" title="Liczba punktów do obliczenia (więcej = dokładniejszy wykres)">Punkty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parameter-section">
+                    <label for="takeoff-distance">
+                        <input type="checkbox" id="takeoff-distance-variable" name="variable-parameter" value="takeoff-distance">
+                        Takeoff Distance (ft) - Dystans startu
+                    </label>
+                    <div class="parameter-controls">
+                        <input type="number" id="takeoff-distance-constant" value="15" step="0.5" min="0" max="100">
+                        <div class="range-controls" style="display: none;">
+                            <div class="range-help-text">Zakres analizy dla wybranej zmiennej:</div>
+                            <div class="input-with-help">
+                                <input type="number" id="takeoff-distance-min" value="0" step="0.5" min="0" max="100" placeholder="Min">
+                                <span class="help-tooltip" title="Minimalna wartość do analizy">Min</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="takeoff-distance-max" value="50" step="0.5" min="0" max="100" placeholder="Max">
+                                <span class="help-tooltip" title="Maksymalna wartość do analizy">Max</span>
+                            </div>
+                            <div class="input-with-help">
+                                <input type="number" id="takeoff-distance-points" value="50" min="10" max="200" placeholder="Points">
+                                <span class="help-tooltip" title="Liczba punktów do obliczenia (więcej = dokładniejszy wykres)">Punkty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="analysis-controls">
+                <button id="calculate-btn" class="calculate-button">Oblicz i Wyświetl Wykres</button>
+                <button id="find-optimal-btn" class="optimal-button">Znajdź Optymalne Wartości</button>
+            </div>
+
+            <div class="results-panel">
+                <div id="current-result" class="result-display">
+                    <h3>Wynik dla bieżących parametrów</h3>
+                    <div id="current-fs" class="result-value">FS = -</div>
+                    <div class="result-breakdown">
+                        <div>M = <span id="current-m">-</span></div>
+                        <div>Z = <span id="current-z">-</span></div>
+                    </div>
+                </div>
+
+                <div id="optimal-result" class="result-display" style="display: none;">
+                    <h3>Wynik optymalny</h3>
+                    <div id="optimal-fs" class="result-value">Max FS = -</div>
+                    <div id="optimal-params" class="optimal-params"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-panel">
+            <div id="chart-container">
+                <div id="flight-score-chart" class="chart-area"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="formula-info">
+        <h3>Wzory obliczeniowe</h3>
+        <div class="formula-section">
+            <p><strong>Final Flight Score:</strong> FS = 3 × W<sub>Payload</sub> × M + Z</p>
+            <p><strong>M (Multiplier):</strong> M = 11 / ((W<sub>Empty</sub> - 1)⁴ + 8.9)</p>
+            <p><strong>Z (Bonus):</strong> Z = B<sub>Takeoff</sub> - S<sup>1.5</sup></p>
+            <p><strong>B<sub>Takeoff</sub> (Takeoff Bonus) - zależny od dystansu startu:</strong></p>
+            <ul>
+                <li>20 dla dystansu startu 0 ≤ x ≤ 10 ft</li>
+                <li>15 dla dystansu startu 10 < x ≤ 25 ft</li>
+                <li>9 dla dystansu startu 25 < x ≤ 50 ft</li>
+                <li>0 dla dystansu startu 50 < x ≤ 100 ft</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>Projekt współpracy KN Solvro x Akademicki Klub Lotniczy | <a href="https://github.com/Solvro/web-akl-calculator" target="_blank">GitHub</a></p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
